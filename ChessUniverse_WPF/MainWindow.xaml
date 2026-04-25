@@ -5,11 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChessUniverse_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="950" Width="1200" WindowStartupLocation="CenterScreen" Background="White">
+        Title="MainWindow" Height="650" Width="1200" WindowStartupLocation="CenterScreen" Background="White">
     <Grid>
-        <Image Source="/Images/board/board.png" Height="900"/>
-        <Grid Name ="grid_figure" Height="720" Width="720" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="262,108,0,0">
-           
+        <Image Name="board" Source="/Images/board/board.png" Margin="132,45,441,0"/>
+        <Grid Name ="grid_figure" Height="453" Width="453" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="224,102,0,0">
+            <!-- white figures-->
+            <Image Name="wh_pawn_A" Tag ="pawn" Source="/Images/Figures/white-soldier.png" Margin="10,344,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_pawn_B" Tag ="pawn" Source="/Images/Figures/white-soldier.png" Margin="67,344,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_pawn_C" Tag ="pawn" Source="/Images/Figures/white-soldier.png" Margin="124,344,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_pawn_D" Tag ="pawn" Source="/Images/Figures/white-soldier.png" Margin="181,344,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_pawn_E" Tag ="pawn" Source="/Images/Figures/white-soldier.png" Margin="238,344,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_pawn_F" Tag ="pawn" Source="/Images/Figures/white-soldier.png" Margin="295,344,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_pawn_G" Tag ="pawn" Source="/Images/Figures/white-soldier.png" Margin="352,344,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_pawn_H" Tag ="pawn" Source="/Images/Figures/white-soldier.png" Margin="409,344,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+
+            <Image Name="wh_rook_A" Tag ="rook" Source="/Images/figures/white-ship.png" Height="50" Width="45" Margin="6,403,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_horse_B" Tag ="horse" Source="/Images/figures/white-horse.png" Height="50" Width="50" Margin="60,402,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_bishop_C" Tag ="bishop" Source="/Images/figures/white-elephant.png" Height="50" Width="43" Margin="121,402,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+
+            <Image Name="wh_queen_D" Tag ="queen" Source="/Images/figures/white-queen.png" Height="42" Width="50" Margin="175,409,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_king_E" Tag ="king" Source="/Images/figures/white-king.png" Height="45" Width="50" Margin="232,406,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+
+            <Image Name="wh_bishop_F" Tag ="bishop" Source="/Images/figures/white-elephant.png" Height="50" Width="43" Margin="292,402,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_horse_G" Tag ="horse" Source="/Images/figures/white-horse.png" Height="50" Width="50" Margin="345,402,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="wh_rook_H" Tag ="rook" Source="/Images/figures/white-ship.png" Height="50" Width="45" Margin="405,403,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+
+            <!-- black figures-->
+            <Image Name="bl_pawn_A" Tag ="pawn" Source="/Images/Figures/black-soldier.png" Margin="10,62,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_pawn_B" Tag ="pawn" Source="/Images/Figures/black-soldier.png" Margin="67,63,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_pawn_C" Tag ="pawn" Source="/Images/Figures/black-soldier.png" Margin="126,64,0,0" Height="50" Width="34" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_pawn_D" Tag ="pawn" Source="/Images/Figures/black-soldier.png" Margin="183,64,0,0" Height="50" Width="34" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_pawn_E" Tag ="pawn" Source="/Images/Figures/black-soldier.png" Margin="240,62,0,0" Height="50" Width="34" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_pawn_F" Tag ="pawn" Source="/Images/Figures/black-soldier.png" Margin="295,62,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_pawn_G" Tag ="pawn" Source="/Images/Figures/black-soldier.png" Margin="352,64,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_pawn_H" Tag ="pawn" Source="/Images/Figures/black-soldier.png" Margin="409,62,0,0" Height="50" Width="35" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+
+            <Image Name="bl_rook_A" Tag ="rook" Source="/Images/figures/black-ship.png" Height="50" Width="45" Margin="6,7,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_horse_B" Tag ="knight" Source="/Images/figures/black-horse.png" Height="50" Width="50" Margin="60,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_bishop_C" Tag ="bishop" Source="/Images/figures/black-elephant.png" Height="50" Width="42" Margin="122,2,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+
+            <Image Name="bl_queen_D" Tag ="queen" Source="/Images/figures/black-queen.png" Height="42" Width="50" Margin="175,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_king_E" Tag ="king" Source="/Images/figures/black-king.png" Height="45" Width="50" Margin="232,10,0,399" HorizontalAlignment="Left" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+
+            <Image Name="bl_bishop_F" Tag ="bishop" Source="/Images/figures/black-elephant.png" Height="50" Width="43" Margin="292,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_horse_G" Tag ="horse" Source="/Images/figures/black-horse.png" Height="50" Width="50" Margin="345,7,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+            <Image Name="bl_rook_H" Tag ="rook" Source="/Images/figures/black-ship.png" Height="50" Width="45" Margin="405,7,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" MouseDown="MouseDown" MouseUp="MouseUp" MouseMove="MouseMove" Stretch="Fill"/>
+
         </Grid>
+
+        <Label Name="label1" Content="X:" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="745,415,0,0"/>
+        <Label Name="label2" Content="Y:" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="745,435,0,0"/>
+        <Label Name="label3" Content="M:" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="745,390,0,0"/>
+        <Label Name="label4" Content="New-X" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="745,340,0,0"/>
+        <Label Name="label5" Content="New-Y" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="745,290,0,0"/>
     </Grid>
 </Window>
