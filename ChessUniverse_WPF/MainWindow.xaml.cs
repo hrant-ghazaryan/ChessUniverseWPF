@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using ChessUniverse.Library;
+using ChessUniverse.Library.Pieces;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -78,6 +80,9 @@ public partial class MainWindow : Window
         label3.Content = "M: " + img.Margin.Left.ToString() + " " + img.Margin.Top.ToString();
 
         RookStep(img, _imgDownX, _imgDownY, _imgUpX, _imgUpY);
+        Piece[,] boarddd = new Piece[8,8];
+        BoardLocParsal(boarddd);
+        Console.ReadLine();
     }
 
     private void MouseMove(object sender, MouseEventArgs e)
@@ -100,5 +105,63 @@ public partial class MainWindow : Window
 
         if (img.Tag.ToString() == "rook" && !(imgDownx == imgUpx || imgDowny == imgUpy))
             img.Margin = new Thickness(imgDownx, imgDowny, 0, 0);
+    }
+
+    public void BoardLocParsal(Piece[,] boardPiece)
+    {
+
+        var images = grid_figure.Children.OfType<Image>().ToList();
+        for (int i = 0; i < images.Count; i++)
+        {
+            
+            int cellSize = 57;
+            int centerX = (int)Math.Round(images[i].Margin.Left + images[i].Width / 2);
+            int centerY = (int)Math.Round(images[i].Margin.Top + images[i].Height / 2);
+            int col = centerX / cellSize;
+            int row = centerY / cellSize;
+
+            row = Math.Clamp(row, 0, 7);
+            col = Math.Clamp(col, 0, 7);
+
+            string? imageName = images[i].Name.ToString();
+
+            if (images[i].Tag.ToString() == "rook" && imageName[0] == 'w')
+                boardPiece[row, col] = new Rook(PieceColor.White);
+            else if (images[i].Tag.ToString() == "rook" && imageName[0] == 'b')
+                boardPiece[row, col] = new Rook(PieceColor.Black);
+
+            if (images[i].Tag.ToString() == "pawn" && imageName[0] == 'w')
+                boardPiece[row, col] = new Pawn(PieceColor.White);
+            else if (images[i].Tag.ToString() == "pawn" && imageName[0] == 'b')
+                boardPiece[row, col] = new Pawn(PieceColor.Black);
+
+            if (images[i].Tag.ToString() == "bishop" && imageName[0] == 'w')
+                boardPiece[row, col] = new Bishop(PieceColor.White);
+            else if (images[i].Tag.ToString() == "bishop" && imageName[0] == 'b')
+                boardPiece[row, col] = new Bishop(PieceColor.Black);
+
+            if (images[i].Tag.ToString() == "knight" && imageName[0] == 'w')
+                boardPiece[row, col] = new Knight(PieceColor.White);
+            else if (images[i].Tag.ToString() == "knight" && imageName[0] == 'b')
+                boardPiece[row, col] = new Knight(PieceColor.Black);
+
+            if (images[i].Tag.ToString() == "queen" && imageName[0] == 'w')
+                boardPiece[row, col] = new Queen(PieceColor.White);
+            else if (images[i].Tag.ToString() == "queen" && imageName[0] == 'b')
+                boardPiece[row, col] = new Queen(PieceColor.Black);
+
+            if (images[i].Tag.ToString() == "king" && imageName[0] == 'w')
+                boardPiece[row, col] = new King(PieceColor.White);
+            else if (images[i].Tag.ToString() == "king" && imageName[0] == 'b')
+                boardPiece[row, col] = new King(PieceColor.Black);
+
+        }
+        /*int imgX = (int)(images[i].Margin.Top / 57);
+            int imgY = (int)(images[i].Margin.Left / 57);
+            string? imageName = images[i].Name.ToString();
+            if (images[i].Tag.ToString() == "pawn" && imageName[0] == 'w')
+                boardPiece[imgX, imgY] = new Piece(PieceColor.White, PieceType.Pawn);
+            else if (images[i].Tag.ToString() == "pawn" && imageName[0] == 'b')
+                boardPiece[imgX, imgY] = new Piece(PieceColor.Black, PieceType.Pawn);*/
     }
 }
